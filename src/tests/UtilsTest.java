@@ -11,7 +11,7 @@ public class UtilsTest {
     @Test
     public void testReadResourceString() throws Exception {
         // Arrange
-        String expected = "1";
+        String expected = "Emma";
 
         // Act
         String s = Utils.ReadResourceString("./tests/resources/1.out");

@@ -11,16 +11,36 @@ public class Solver {
         this.reader = reader;
     }
 
-    public int solve(){
-        int contestants = reader.readInt();
-        int problems = reader.readInt();
+    public String solve() {
+        int gunnarMin1 = reader.readInt();
+        int gunnarMax1 = reader.readInt();
+        int gunnarMin2 = reader.readInt();
+        int gunnarMax2 = reader.readInt();
         reader.readLine();
+        int emmaMin1 = reader.readInt();
+        int emmaMax1 = reader.readInt();
+        int emmaMin2 = reader.readInt();
+        int emmaMax2 = reader.readInt();
 
-        for (int i = 0; i < contestants; i++) {
-            // we don't need names
-            reader.readLine();
+        float gunnarScore = calculate(gunnarMin1, gunnarMax1) + calculate(gunnarMin2, gunnarMax2);
+        float emmaScore = calculate(emmaMin1, emmaMax1) + calculate(emmaMin2, emmaMax2);
+
+        System.err.printf("Gunnar %f, Emma %f", gunnarScore, emmaScore);
+
+        if (gunnarScore > emmaScore) {
+            return "Gunnar";
+        } else if (gunnarScore < emmaScore) {
+            return "Emma";
+        } else {
+            return "Tie";
         }
+    }
 
-        return problems;
+    public static float calculate(int min, int max) {
+        // sum: (a1 + an)*n/2
+        // probability: 1/n
+        //      - > (a1 + an)/2
+
+        return (min + max) / 2f;
     }
 }

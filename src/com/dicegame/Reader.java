@@ -23,17 +23,11 @@ public class Reader {
         this(new ByteArrayInputStream(inputString.getBytes(StandardCharsets.UTF_8)));
     }
 
-    public int readInt(){
-
-       int val = scanner.nextInt();
-
-        if(!scanner.hasNext()){
-            scanner.nextLine();
-        }
-        return val;
+    public int readInt() {
+        return scanner.nextInt();
     }
 
-    public String readLine(){
+    public String readLine() {
         return scanner.nextLine();
     }
 }
